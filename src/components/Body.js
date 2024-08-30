@@ -3,6 +3,7 @@ import RestaurantCard from "./RestaurantCard";
 import resList from "../utils/mockData";
 import {useState , useEffect} from "react";
 import Shimmar from "./Shimmer";
+import { Link } from "react-router-dom";
 //useState is used to maintain  the state of your react component/react app
 
 const Body = () => {
@@ -23,14 +24,14 @@ const Body = () => {
     const fetchData = async () => {
         try {
             const response = await fetch(
-                'https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.73826769999999&lng=77.0822151&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING'
+                'https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5758143&lng=77.1923685&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING'
             );
             if (!response.ok) {
                 throw new Error('Failed to fetch data');
             }
             const json = await response.json();
          
-            const restaurants = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+            const restaurants = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
           
             setListOfRestaurants(restaurants);
             setfilteredRestaurants(restaurants);
@@ -63,7 +64,7 @@ const Body = () => {
             </div>
             <div className="res-container">
                 {filteredRestaurants.map((restaurant) => (
-                    <RestaurantCard key={restaurant.info.id} resData={restaurant}/>
+                   <Link key={restaurant.info.id} to={"/Restaurant/"+restaurant.info.id}> <RestaurantCard resData={restaurant}/></Link>
                 ))
                 }
             </div>

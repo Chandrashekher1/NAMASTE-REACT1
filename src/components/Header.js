@@ -1,6 +1,8 @@
 import React from "react";
 import {LOGO_URL} from "../utils/constants";
-import { useState } from "react";
+import { useState , useEffect } from "react";
+import { Link } from "react-router-dom";   // itis similar to anchor tag <a/>
+
 
 
 const Header=()=>{
@@ -11,17 +13,31 @@ const Header=()=>{
 
     const [btnNameReact, setBtnNameReact] = useState("Login")
 
+    // if no dependency array => useEffect is called on every render
+    // if dependency array is empty = [] => useEffect is called on initial render(just once)
+    useEffect(() => {
+        console.log("useEffect is called");
+    }, [btnNameReact])  // wif the depnedency array is called btnNameReact => useEffect is called every click on btnNameReact
+
     return(
         <div className="header">
             <div className="logo-container">
                 <img className="logo" src={LOGO_URL} alt=""/>
             </div>
             <div className="nav-items">
-                <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Contact us</li>
+                <ul>  
+                    {/* Don't use anchor tag <a/> in react b/c it reload the page everytime */}
+
+                    {/* <li><a href="/"> Home</a></li>   
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact us</a></li>
+                    <li>Cart</li> */}
+
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/about">About</Link></li>
+                    <li><Link to="/contact">Contact Us</Link></li>
                     <li>Cart</li>
+                    
                     <button className="login-btn" onClick={() => {btnNameReact==="Login" ? setBtnNameReact("Logout") : setBtnNameReact("Login")} 
                     }> {btnNameReact}</button>
                 </ul>
