@@ -1,9 +1,13 @@
-import React from "react";
-import RestaurantCard from "./RestaurantCard";
+import React, { useContext } from "react";
+import RestaurantCard, {withPromotedLabel} from "./RestaurantCard";
 import resList from "../utils/mockData";
 import {useState , useEffect} from "react";
 import Shimmar from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
+
+
 //useState is used to maintain  the state of your react component/react app
 
 const Body = () => {
@@ -12,10 +16,16 @@ const Body = () => {
     //will also work if we use const arr and then assign arr to use state
     const [listOfRestaurants, setListOfRestaurants]=useState([])
     const [filteredRestaurants, setfilteredRestaurants] = useState([])
+
+    console.log(listOfRestaurants);
+    
    
     const [searchText , setSearchText] = useState("")
     // Whenever state variables update, react triggers a reconcilation cycle
     
+    // Promoted label card
+
+    const RestaurantCardPromoted = withPromotedLabel(RestaurantCard)
 
     useEffect(() => {
         fetchData();
@@ -31,20 +41,29 @@ const Body = () => {
             }
             const json = await response.json();
          
-            const restaurants = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+            const restaurant = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
           
-            setListOfRestaurants(restaurants);
-            setfilteredRestaurants(restaurants);
+            setListOfRestaurants(restaurant);
+            setfilteredRestaurants(restaurant);
         } catch (error) {
             console.error('Error fetching data:', error);
         }
     };
+
+    const onlineStatus = useOnlineStatus()
+
+    if(onlineStatus === false){
+        return <h1>Looks like you are offline!! Please check your internet connection</h1>
+    }
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const {loggedInUser , setUserName} = useContext(UserContext)
        
     return listOfRestaurants.length === 0?(<Shimmar/>) : (
         <div className="body">
             <div className="filter">
-                <div className="search">
-                    <input type="text" className="search-box" value={searchText} onChange ={(e) => {
+                <div className="search p-4 m-4">
+                    <input type="text" className="border border-solid border-black" value={searchText} onChange ={(e) => {
                         setSearchText(e.target.value)
                     }}/>
                     <button onClick={() => {
@@ -55,19 +74,28 @@ const Body = () => {
                         setfilteredRestaurants(filteredRestaurants)   
                     }}>Search</button>
                 </div>
+                <label>userName : </label>
+                <input className="userName" value={loggedInUser} onChange={(e) => setUserName(e.target.value)}/>
+                    
                 <button className="filter-btn" onClick={() => {
                     const filteredRestaurants = listOfRestaurants.filter(
-                        (item) => item.info.avgRating > 4
+                        (item) => item.info.avgRating > 0
                     );
                     setListOfRestaurants(filteredRestaurants);
                 }}>Top rated Restaurants</button>
             </div>
             <div className="res-container">
                 {filteredRestaurants.map((restaurant) => (
-                   <Link className={"resCard-link"} key={restaurant.info.id} to={`/Restaurant/${restaurant.info.id}`}>
-                   {console.log('Navigating to:', `/Restaurant/${restaurant.info.id}`)}
-                   <RestaurantCard resData={restaurant} />
-                    </Link> 
+                   <Link className="resCard-link" key={restaurant.info.id} to={`/restaurants/${restaurant.info.id}`}>
+                   {console.log('Navigating to:', `/restaurants/${restaurant.info.id}`)}
+
+                   {/* If the restaurant is promoted, add a promoted label */}
+                   {restaurant.info.promoted ? (
+                       <RestaurantCardPromoted resData={restaurant} />
+                   ) : (
+                       <RestaurantCard resData={restaurant} />
+                   )}
+                  </Link>
                 ))
                 }
             </div>

@@ -21,19 +21,20 @@ class UserClass extends React.Component{
     async componentDidMount(){
         // this method used to API Call
     
-        const data = await fetch("https://api.github.com/users/akshaymarch7")
+        const data = await fetch("https://api.github.com/users/chandrashekher1")
         const json = await data.json()
-
-        this.setState ({
-            userInfo:json
-        })
         console.log(json);
+        this.setState ({
+            userInfo:json,
+        })   
+    }
+    componentDidUpdate(){
+        console.log("componenet Did Update");
         
     }
+    componentWillUnmount(){
+        // this component is called when we are leaving the page
 
-    componentDidUpdate(){
-        console.log("componenet did call");
-        
     }
 
     render () {
@@ -41,6 +42,7 @@ class UserClass extends React.Component{
        
         return (
             <div className="user-card">
+                <img src={this.state.userInfo.avatar_url}></img>
                 <h2>Name: {name}</h2>
                 <h3>location: {location}</h3>
                 <h4>Contact: @CP</h4>

@@ -2,10 +2,13 @@ import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useResturantMenu";
 import RestaurantCategory from "./RestarurantCategory";
+import { useState } from "react";
 
 const RestaurantMenu = () => {
     const { resId } = useParams(); // Retrieve the restaurant ID from URL params
     const resInfo = useRestaurantMenu(resId);  // Fetch restaurant info using the custom hook
+
+    const [showIndex, setshowIndex] = useState(null)
 
     // If resInfo is null or the API call hasn't returned data yet, display a loading shimmer
     if (resInfo === null) {
@@ -44,8 +47,16 @@ const RestaurantMenu = () => {
 
             {/* Categories accordions */}
 
-            {Categories.map((category) => (
-                <RestaurantCategory data ={category?.card?.card}/>
+            {Categories.map((category,index) => (
+                // control components
+                <RestaurantCategory key ={category?.card?.card.title} 
+                data ={category?.card?.card} 
+                showItems = { index === showIndex ? true : false} 
+                setshowIndex={() => setshowIndex(prevIndex => (prevIndex === index ? null : index))}
+
+                // setshowIndex= { () => setshowIndex(index)}
+                />
+                
             ))}
 
         </div>

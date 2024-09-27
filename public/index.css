@@ -1,76 +1,157 @@
 
 .header{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+  }
+  .logo{
+    width: 120px;
+    height: 120px;
+  }
+  .nav-items{
+    padding: 0 20px;
+  }
+  .nav-items >ul{
+    font-size: 24px;
+    display: flex;
+    list-style: none;
+  }
+  .nav-items >ul>li{
+    padding:10px ;
+    margin: 10px;
+  }
+  .res-container{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .res-card{
+    margin: 10px;
+    width: 200px;
+    padding: 5px;
+  
+  }
+  .res-card:hover{
+    border: 1px solid black;
+    cursor: pointer;
+  }
+  .search{
+    padding: 10px;
+  }
+  .res-logo{
+    width: 100%;
+  }
+  .filter-btn{
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #919191;
+    color: #fff;
+    
+    border-radius: 20px;
+    text-align: center;
+  }
+  .shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .shimmer-card{
+    width: 200px;
+    height: 400px;
+    background-color: #f0f0f0;
+    margin: 20px;
+  }
+  .login-btn{
+    padding: 0 20px;
+    cursor: pointer;
+  }
+  
+  .filter{
+    display: flex;
+    
+  }
+  
+  .user-card{
+    padding: 10px;
+    border: 1px solid black;
+  }
+
+.Menu {
+  text-align: center;
+  margin: 6px;
+  
+}  
+.Menu p{
+  font-size: 18px;
+  font-weight: bold;
+}
+.CatHeader{
+  margin: auto;
+  width: 50%;
+  margin-bottom: auto;
+  margin-top: 20px;
+  /* background-color: lightgray; */
+  padding: 15px;
+  border-radius: 30px;
+  box-shadow: 10px 10px 5px lightgray;
+  color: #000;
+  font-size: 18px;
+  font-weight: bold;
+
+}
+.CatHeader .item{
   display: flex;
   justify-content: space-between;
-  border: 1px solid black;
+
 }
-.logo{
+.CatHeader .item .head{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+
+.itemKey{
+  border-bottom: 5px solid gray;
+  padding: 10px;
+  margin: 10px;
+  text-align: left;
+  padding-left: 5px ;
+  display: flex;
+  justify-content: space-between;
+}
+.itemKey p{
+  font-weight: normal;
+}
+.itemKey span{
+  display: flex;
+  padding: 5px;
+  
+}
+.itemKey img{
   width: 120px;
   height: 120px;
-}
-.nav-items{
-  padding: 0 20px;
-}
-.nav-items >ul{
-  font-size: 24px;
-  display: flex;
-  list-style: none;
-}
-.nav-items >ul>li{
-  padding:10px ;
-  margin: 10px;
-}
-.res-container{
-  display: flex;
-  flex-wrap: wrap;
-}
-.res-card{
-  margin: 10px;
-  width: 200px;
-  padding: 5px;
-
-}
-.res-card:hover{
-  border: 1px solid black;
-  cursor: pointer;
-}
-.search{
-  padding: 10px;
-}
-.res-logo{
-  width: 100%;
-}
-.filter-btn{
-  margin: 10px;
-  padding: 10px;
-  cursor: pointer;
-  background-color: #919191;
-  color: #fff;
-  
   border-radius: 20px;
-  text-align: center;
+  
 }
-.shimmer-container{
-  display: flex;
-  flex-wrap: wrap;
-}
-.shimmer-card{
-  width: 200px;
-  height: 400px;
-  background-color: #f0f0f0;
-  margin: 20px;
-}
-.login-btn{
-  padding: 0 20px;
+.btn{
+  position:relative;
+  border: none;
+  padding: 10px 10px;
+  font-size: 14px;
+  border-radius: 10px;
+  top: 130px;
+  left: 70px;
+  background-color: #fff;
+  color: green;
+  font-weight: bold;
   cursor: pointer;
 }
 
-.filter{
-  display: flex;
-  
-}
-
-.user-card{
-  padding: 10px;
+.userName{
+  width: 150px;
+  height: 20px;
   border: 1px solid black;
+  margin: 20px 5px;
+}
+label{
+  margin: 20px 5px;
 }
