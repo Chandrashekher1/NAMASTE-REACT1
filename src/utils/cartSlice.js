@@ -5,7 +5,7 @@ import { clear } from "@testing-library/user-event/dist/clear";
 const cartSlice = createSlice({
     name : "cart",
     initialState : {
-        items: ["burger","momos"],
+        items: [],
     },
     reducers : {
         addItem : (state,action) => {

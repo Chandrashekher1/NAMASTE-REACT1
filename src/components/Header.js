@@ -4,6 +4,7 @@ import { useState , useEffect } from "react";
 import { Link } from "react-router-dom";   // itis similar to anchor tag <a/>
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 
 const Header=()=>{
@@ -17,7 +18,9 @@ const Header=()=>{
 
     const {loggedInUser} = useContext(UserContext)
 
+    // subscribing to the store using selector
 
+    const cartItems = useSelector((store) => store.cart.items)
 
     // if no dependency array => useEffect is called on every render
     // if dependency array is empty = [] => useEffect is called on initial render(just once)
@@ -44,7 +47,7 @@ const Header=()=>{
                     <li className="px-4"><Link to="/about">About</Link></li>
                     <li className="px-4"><Link to="/contact">Contact Us</Link></li>
                     <li className="px-4"><Link to="/Grocery">Grocery</Link></li>
-                    <li className="px-4">Cart</li>
+                    <li className="cart"><Link to="/Cart">Cart - ({cartItems.length} items)</Link></li>
                     
                     <button className="login-btn" onClick={() => {btnNameReact==="Login" ? setBtnNameReact("Logout") : setBtnNameReact("Login")} 
                     }> {btnNameReact}</button>
