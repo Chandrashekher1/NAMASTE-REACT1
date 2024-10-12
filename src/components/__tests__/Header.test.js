@@ -47,5 +47,5 @@ test("Should Change login to logout on click", () => {
 
     const logoutButton = screen.getByRole("button",{name: "Logout"})
 
-    expect(logoutButton).toBeInTheDocument();
+    expect(logoutButton ).toBeInTheDocument();
 })

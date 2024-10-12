@@ -62,8 +62,8 @@ const Body = () => {
     return listOfRestaurants.length === 0?(<Shimmar/>) : (
         <div className="body">
             <div className="filter">
-                <div className="search p-4 m-4">
-                    <input type="text" className="border border-solid border-black" value={searchText} onChange ={(e) => {
+                <div className="search">
+                    <input type="text" data-testid= "searchInput" placeholder="Search for restaurant and food" value={searchText} onChange ={(e) => {
                         setSearchText(e.target.value)
                     }}/>
                     <button onClick={() => {
@@ -74,8 +74,8 @@ const Body = () => {
                         setfilteredRestaurants(filteredRestaurants)   
                     }}>Search</button>
                 </div>
-                <label>userName : </label>
-                <input className="userName" value={loggedInUser} onChange={(e) => setUserName(e.target.value)}/>
+                <label for="name" className="input">UserName  : </label>
+                <input className="userName" id="name" value={loggedInUser} onChange={(e) => setUserName(e.target.value)}/>
                     
                 <button className="filter-btn" onClick={() => {
                     const filteredRestaurants = listOfRestaurants.filter(

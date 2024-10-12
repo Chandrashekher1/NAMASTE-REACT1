@@ -2,34 +2,64 @@ import { render,screen } from "@testing-library/react"
 import Contact from "../Contact"
 import "@testing-library/jest-dom"
 
-test("Should render contact me page", () => {
-    render(<Contact/>)
+// test("Should render contact me page", () => {
+//     render(<Contact/>)
 
-    const heading = screen.getByRole("heading")
+//     const heading = screen.getByRole("heading")
 
-    // Assertion
-    expect(heading).toBeInTheDocument();
+//     // Assertion
+//     expect(heading).toBeInTheDocument();
+  
+// test("Should load button inside contact me page", () => {
+//     render(<Contact/>)
 
-})
+//     const button = screen.getByRole("button")
 
-// For button
+//     // Assertion
+//     expect(button).toBeInTheDocument();
 
-test("Should load button inside contact me page", () => {
-    render(<Contact/>)
+// })
 
-    const button = screen.getByRole("button")
+// test("Should load input inside contact me page", () => {
+//     render(<Contact/>)
 
-    // Assertion
-    expect(button).toBeInTheDocument();
+//     const Text = screen.getByText("Submit")
 
-})
+//     // Assertion
+//     expect(Text).toBeInTheDocument();
 
-test("Should load input inside contact me page", () => {
-    render(<Contact/>)
+// })
 
-    const Text = screen.getByText("Submit")
+// For more testCases we can also use : :  describe() 
 
-    // Assertion
-    expect(Text).toBeInTheDocument();
-
+describe("Contact Us Page Text Caser", () => {
+    test("Should render contact me page", () => {
+        render(<Contact/>)
+    
+        const heading = screen.getByRole("heading")
+    
+        // Assertion
+        expect(heading).toBeInTheDocument();
+    
+    })
+    
+    test("Should load button inside contact me page", () => {
+        render(<Contact/>)
+    
+        const button = screen.getByRole("button")
+    
+        // Assertion
+        expect(button).toBeInTheDocument();
+    
+    })
+    
+    test("Should load input inside contact me page", () => {
+        render(<Contact/>)
+    
+        const Text = screen.getByText("Submit")
+    
+        // Assertion
+        expect(Text).toBeInTheDocument();
+    
+    })
 })

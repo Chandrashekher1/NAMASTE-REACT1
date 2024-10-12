@@ -34,7 +34,7 @@ const Header=()=>{
                 <img className="logo" src={LOGO_URL} alt=""/>
             </div>
             <div className="nav-items">
-                <ul className="flex p-4 m-4 ">  
+                <ul>  
                     {/* Don't use anchor tag <a/> in react b/c it reload the page everytime */}
 
                     {/* <li><a href="/"> Home</a></li>   
@@ -42,12 +42,12 @@ const Header=()=>{
                     <li><a href="/contact">Contact us</a></li>
                     <li>Cart</li> */}
 
-                    <li className="px-4">Online status : {onlineStatus ? "😊" : "😔"}</li>
-                    <li className="px-4" ><Link to="/">Home</Link></li>
-                    <li className="px-4"><Link to="/about">About</Link></li>
-                    <li className="px-4"><Link to="/contact">Contact Us</Link></li>
-                    <li className="px-4"><Link to="/Grocery">Grocery</Link></li>
-                    <li className="cart"><Link to="/Cart">Cart - ({cartItems.length} items)</Link></li>
+                    <li>Online status : {onlineStatus ? "" : "😔"}</li>
+                    <li><Link to="/" className="li">Home</Link></li>
+                    <li><Link to="/about"  className="li">About</Link></li>
+                    <li><Link to="/contact"  className="li">Contact Us</Link></li>
+                    <li><Link to="/Grocery"  className="li">Grocery</Link></li>
+                    <li><Link to="/Cart"  className="li">Cart - ({cartItems.length} items)</Link></li>
                     
                     <button className="login-btn" onClick={() => {btnNameReact==="Login" ? setBtnNameReact("Logout") : setBtnNameReact("Login")} 
                     }> {btnNameReact}</button>

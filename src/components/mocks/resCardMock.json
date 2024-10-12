@@ -1,0 +1,109 @@
+{
+    "info": {
+        "id": "9518",
+        "name": "Subway",
+        "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2024/9/17/57170a91-0751-45cc-b014-7c367d200c54_9518.jpg",
+        "locality": "DLF South Square",
+        "areaName": "Sarojini Nagar",
+        "costForTwo": "₹350 for two",
+        "cuisines": [
+            "Salads",
+            "Snacks",
+            "Desserts",
+            "Beverages"
+        ],
+        "avgRating": 4.6,
+        "parentId": "2",
+        "avgRatingString": "4.6",
+        "totalRatingsString": "10K+",
+        "sla": {
+            "deliveryTime": 21,
+            "lastMileTravel": 0.3,
+            "serviceability": "SERVICEABLE",
+            "slaString": "20-25 mins",
+            "lastMileTravelString": "0.3 km",
+            "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+            "nextCloseTime": "2024-10-12 23:00:00",
+            "opened": true
+        },
+        "badges": {
+            "imageBadges": [
+                {
+                    "imageId": "Green%20Dot%20Awards/Best%20In%20Veg%20Salad.png",
+                    "description": "Delivery!"
+                }
+            ],
+            "textExtendedBadges": [
+                {
+                    "iconId": "guiltfree/GF_Logo_android_3x",
+                    "shortDescription": "options available",
+                    "fontColor": "#7E808C"
+                }
+            ]
+        },
+        "isOpen": true,
+        "aggregatedDiscountInfoV2": {},
+        "type": "F",
+        "badgesV2": {
+            "entityBadges": {
+                "imageBased": {
+                    "badgeObject": [
+                        {
+                            "attributes": {
+                                "description": "Delivery!",
+                                "imageId": "Green%20Dot%20Awards/Best%20In%20Veg%20Salad.png"
+                            }
+                        }
+                    ]
+                },
+                "textBased": {},
+                "textExtendedBadges": {
+                    "badgeObject": [
+                        {
+                            "attributes": {
+                                "description": "",
+                                "fontColor": "#7E808C",
+                                "iconId": "guiltfree/GF_Logo_android_3x",
+                                "shortDescription": "options available"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "orderabilityCommunication": {
+            "title": {},
+            "subTitle": {},
+            "message": {},
+            "customIcon": {}
+        },
+        "differentiatedUi": {
+            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            "differentiatedUiMediaDetails": {
+                "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                "lottie": {},
+                "video": {}
+            }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {},
+        "externalRatings": {
+            "aggregatedRating": {
+                "rating": "--"
+            }
+        },
+        "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+    },
+    "analytics": {
+        "context": "seo-data-41227248-2641-49fa-a212-4fa2ca590d19"
+    },
+    "cta": {
+        "link": "https://www.swiggy.com/city/delhi/subway-dlf-south-square-sarojini-nagar-rest9518",
+        "text": "RESTAURANT_MENU",
+        "type": "WEBLINK"
+    },
+    "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
+}
