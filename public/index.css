@@ -5,7 +5,7 @@
     box-shadow: 5px 0px 2px lightblue;
     background-color: lightblue;
     position: sticky;
-    margin-top: -10px;
+    top: 0px;
     width: 100%;
   }
   .logo{
@@ -113,11 +113,11 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    margin-left: 50px;
+    margin-left: 10rem;
     text-align: start;
   }
   .res-card{
-    margin: 10px;
+    margin: 20px;
     width: 200px;
     padding: 5px;
     
@@ -136,6 +136,7 @@
   }
   .res-card:hover{
     border: 1px solid lightblue;
+    /* transform: translateY(-1px); */
     cursor: pointer;
   }
   .res-card:focus{
