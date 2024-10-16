@@ -58,7 +58,7 @@ const Body = () => {
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const {loggedInUser , setUserName} = useContext(UserContext)
-       
+        
     return listOfRestaurants.length === 0?(<Shimmar/>) : (
         <div className="body">
             <div className="filter">

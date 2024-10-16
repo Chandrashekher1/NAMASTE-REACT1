@@ -42,7 +42,7 @@ const Header=()=>{
                     <li><a href="/contact">Contact us</a></li>
                     <li>Cart</li> */}
 
-                    <li>Online status : {onlineStatus ? "" : "😔"}</li>
+                    <li>Online status : {onlineStatus ? "😊" : "😔"}</li>
                     <li><Link to="/" className="li">Home</Link></li>
                     <li><Link to="/about"  className="li">About</Link></li>
                     <li><Link to="/contact"  className="li">Contact Us</Link></li>
